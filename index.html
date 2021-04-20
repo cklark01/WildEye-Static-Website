@@ -100,7 +100,14 @@
                         <div class="hvrbox">
                             <img src="images/sd-card.png"  class="hvrbox-layer_bottom">
                             <div class="hvrbox-layer_top">
-                                <div class="hvrbox-text" id="name"></div>  
+                                <div class="hvrbox-text" id="sdcard">
+                                    <script>
+                                        (async function() {
+                                          let { text } = await( await fetch(`/api/message`)).json();
+                                          document.querySelector('#sdcard').textContent = text;
+                                        }())
+                                    </script>
+                                </div>  
                             </div>
                         </div>
                 </div>
@@ -109,12 +116,7 @@
 
         <!-- Data Table Section -->
 
-        <script>
-            (async function() {
-              let { text } = await( await fetch(`/api/message`)).json();
-              document.querySelector('#name').textContent = text;
-            }())
-        </script>
+        
 
         <script src="app.js" ></script>
 
